@@ -1,6 +1,6 @@
 # THIS IS GOING TO INJECT THE SCHEMA OF MYSQL
 resource "null_resource" "schema" {
-  depends_on = [aws_db_cluster.mysql]
+  depends_on = [aws_db_instance.mysql]
 
   provisioner "local-exec" {
   command = <<EOF
