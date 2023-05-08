@@ -17,7 +17,7 @@ resource "aws_db_instance" "mysql" {
 # CREATES PARAMETER GROUP
 resource "aws_db_parameter_group" "mysql_pg" {
   name   = "robot-${var.ENV}-mysql-pg"
-  family = "mysql${VAR.MYSQL_RDS_ENGINE_VERSION}"
+  family = "mysql${var.MYSQL_RDS_ENGINE_VERSION}"
 }
 
 # CREATES  SUBNET GROUP
