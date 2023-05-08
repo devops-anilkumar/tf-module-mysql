@@ -1,11 +1,11 @@
 # CREATES CLUSTER
 resource "aws_db_instance" "mysql" {
   identifier               = "robot-${var.ENV}-mysql"
-  allocated_storage        = 10
+  allocated_storage        =  var.MYSQL_RDS_STORAGE
   db_name                  = "mydb"
   engine                   = "mysql"
-  engine_version           = "5.7"
-  instance_class           = "db.t3.micro"
+  engine_version           = var.MYSQL_RDS_ENGINE_VERSION
+  instance_class           = var.MYSQL_RDS_INSTANCE_TYPE
   username                 = "admin1"
   password                 = "RoboShop1"
   parameter_group_name     = aws_db_parameter_group.mysql_pg.name
@@ -17,7 +17,7 @@ resource "aws_db_instance" "mysql" {
 # CREATES PARAMETER GROUP
 resource "aws_db_parameter_group" "mysql_pg" {
   name   = "robot-${var.ENV}-mysql-pg"
-  family = "mysql5.7"
+  family = "mysql${VAR.MYSQL_RDS_ENGINE_VERSION}"
 }
 
 # CREATES  SUBNET GROUP
