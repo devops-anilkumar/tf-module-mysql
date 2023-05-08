@@ -4,5 +4,5 @@ resource "aws_route53_record" "mysql" {
   name    = "mysql-${var.ENV}"
   type    = "CNAME"
   ttl     = 10
-  records = [aws_db_cluster.mysql.address]
+  records = [aws_db_instance.mysql.address]
 }
